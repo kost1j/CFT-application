@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+
+		<title>Cart1</title>
+		<link rel="stylesheet" href="css/normalize.css"/>
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+	<body class="cart-body">
+		<div class="cart-body__wrapper">
+			<header class="cart-header">
+				<ul class="cart-navigation cart-header__cart-navigation">
+					<li class="cart-navigation__block">
+						<a href="#">
+							<div class="cart-navigation__circle cart-navigation_style_link">1</div>
+							<div class="cart-navigation__wrapper-text">
+								<p class="cart-navigation__text cart-navigation__text_style_link">Корзина</p>
+							</div>
+						</a>
+					</li>
+					<li class="cart-navigation__line"></li>
+					<li class="cart-navigation__block">
+						<div class="cart-navigation__circle">2</div>
+						<div class="cart-navigation__wrapper-text">
+							<p class="cart-navigation__text">Оплата</p>
+						</div>
+					</li>
+					<li class="cart-navigation__line"></li>
+					<li class="cart-navigation__block">
+						<div class="cart-navigation__circle">3</div>
+						<div class="cart-navigation__wrapper-text">
+							<p class="cart-navigation__text">Доставка</p>
+						</div>
+					</li>
+					<li class="cart-navigation__line"></li>
+					<li class="cart-navigation__block">
+						<div class="cart-navigation__circle">4</div>
+						<div class="cart-navigation__wrapper-text">
+							<p class="cart-navigation__text">Завершено</p>
+						</div>
+					</li>
+				</ul>
+			</header>
+			<table class="table-shopping">
+				<thead> 
+					<tr>
+						<th class="table-shopping__head-product"></th>
+						<th class="table-shopping__head-cost">Стоимость</th>
+						<th class="table-shopping__head-total">Итого</th>
+						<th class="table-shopping__head-delet"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="table-shopping__product">Расчет штрафов</td><!--
+						--><td class="table-shopping__cost">$139,99</td><!--
+						--><td class="table-shopping__total">$139,99</td><!--
+						--><td class="table-shopping__delet"><div class="table-shopping__delet-picture"></div></td>
+					</tr>
+					<tr>
+						<td class="table-shopping__product">Оформление договора</td><!--
+						--><td class="table-shopping__cost">$399</td><!--
+						--><td class="table-shopping__total">$399</td><!--
+						--><td class="table-shopping__delet"> <div class="table-shopping__delet-picture"></div></td>
+					</tr>
+				</tbody>
+			</table>
+				<a href="Cart2.html" class="cart1-next-button cart1-next-button_style_red">Далее</a>
+				<div class="total-cost">
+					<p class="total-cost__text">Итого</p>
+					<p class="total-cost__integer">$549<span class="total-cost__doit">99</span></p>
+				</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+
+		<title>Cart2</title>
+		<link rel="stylesheet" href="css/normalize.css"/>
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+	<body class="cart-body">
+		<div class="cart-body__wrapper">
+			<header class="cart-header">
+				<ul class="cart-navigation cart-header__cart-navigation">
+					<li class="cart-navigation__block">
+						<a href="Cart1.html">
+							<div class="cart-navigation__circle cart-navigation_style_link"><div class="cart-navigation__check-mark"></div></div>
+							<div class="cart-navigation__wrapper-text">
+								<p class="cart-navigation__text cart-navigation__text_style_link">Корзина</p>
+							</div>
+						</a>
+					</li>
+					<li class="cart-navigation__line cart-navigation_style_link"></li>
+					<li class="cart-navigation__block">
+						<a href="#">
+							<div class="cart-navigation__circle cart-navigation_style_link">2</div>
+							<div class="cart-navigation__wrapper-text">
+							<p class="cart-navigation__text cart-navigation__text_style_link">Оплата</p>
+							</div>
+						</a>
+					</li>
+					<li class="cart-navigation__line"></li>
+					<li class="cart-navigation__block">
+						<div class="cart-navigation__circle">3</div>
+						<div class="cart-navigation__wrapper-text">
+							<p class="cart-navigation__text">Доставка</p>
+						</div>
+					</li>
+					<li class="cart-navigation__line"></li>
+					<li class="cart-navigation__block">
+						<div class="cart-navigation__circle">4</div>
+						<div class="cart-navigation__wrapper-text">
+							<p class="cart-navigation__text">Завершено</p>
+						</div>
+					</li>
+				</ul>
+			</header>
+			<div class="cart-selection">
+				<a href="#" class="cart-selection__button cart-selection__button_style_yellow-border">Карта</a>
+				<p class="cart-selection__text">PayPal</p>
+			</div>
+			<div class="cart-information">
+				<div class="cart-information__up-block">
+					<div class="cart-information__brand-pictures">
+						<div class="master-card"></div>
+						<div class="visa"></div>
+					</div>
+					<form class="cart-information__up-form">
+						<input type="text" class="cart-information__cart-name" name="ard-name" placeholder="Номер карты"><br>
+						<input type="text" class="cart-information__month" name="month" placeholder="Месяц">
+						<input type="text" class="cart-information__year" name="year" placeholder="Год"><br>
+						<input type="text" class="cart-information__owner-name" name="owner-name" placeholder="Имя Владельца">
+					</form>
+				</div>
+				<div class="cart-information__down-block">
+					<div class="cart-information__band"></div>
+					<form class="cart-information__down-form">
+						<input type="text" class="cart-information__cvv" name="cvv" id="cvv" placeholder="CVV"><br>
+						<label class="cart-information__cvv-text" for="cvv">Код на обратной стороне</label>
+					</form>
+				</div>
+			</div>
+			<div class="cart2-down-bottons">
+				<a href="Cart1.html" class="cart2-down-bottons__return cart2-down-bottons__return_style_gray-border">Вернуться назад</a>
+				<a href="Cart3.html" class="cart2-down-bottons__pay cart2-down-bottons__pay_style_red">Оплатить</a>
+			</div>
+				
+		</div>
+	</body>
+</html>
