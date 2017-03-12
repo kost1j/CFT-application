@@ -129,7 +129,60 @@
 	content:"";
 	clear:both;
 }
+/*----------------------------------------элементы навигации--------------*/
 
+.apps-packages__rewind-wrapper{
+	position: absolute;
+	width: 1053px;
+	height: 0;
+}
+.apps-packages__rewind-left,
+.apps-packages__rewind-right{
+	position: relative;
+	top: 120px;
+	width: 20px;
+	height: 20px;
+	background: url("../img/mane-page/expand.svg") 50% 50% no-repeat;	
+	-webkit-background-size: contain;
+	   -moz-background-size: contain;
+	    -ms-background-size: contain;
+	     -o-background-size: contain;
+	        background-size: contain;
+	cursor: pointer;
+	}
+.apps-packages__rewind-left{
+	float: left;
+	right: 30px;
+	-ms-transform: rotate(180deg); 
+    -webkit-transform: rotate(180deg); 
+    -o-transform: rotate(180deg); 
+    transform: rotate(180deg);
+}
+.apps-packages__rewind-right{
+	float: right;
+	left: 30px;
+}
+.apps-packages__list-nav-points{
+	display: block;
+	width: 100%;
+	text-align: center;
+	margin-top: 20px;
+}
+.apps-packages__nav-points{
+	display: inline-block;
+	text-align: center;
+	margin-right: 20px;
+	width:10px;
+	height: 10px;
+	background: #d9d9d9;
+	border-radius: 50%;
+	cursor: pointer;
+}
+.apps-packages__nav-points_check{
+	background:#ed1b2f;
+}
+
+/*------------------------------------------------------*/
 .apps-packages__apps-block{
 	margin-top: 1.625rem;
 	display: inline-block;

@@ -5,7 +5,7 @@
 		<title>Главная</title>
 		<link rel="stylesheet" href="css/normalize.css"/>
 		<link rel="stylesheet" href="css/style.css" />
-		
+		<script type="text/javascript" src="js/create-insert_element.js"></script>
 	</head>
 	<body class="page-body">
 		
@@ -25,6 +25,10 @@
 						<h3 class="apps-packages__banner">Пакет приложений</h3>
 						<form><input type="text" class="apps-packages__search" placeholder="Поиск приложений"/></form>	
 					</div>
+					<div class="apps-packages__rewind-wrapper">
+						<div class="apps-packages__rewind-left" onclick="leftRewind()"></div>
+						<div class="apps-packages__rewind-right" onclick="rightRewind()"></div>
+					</div>
 					<div class="apps-packages__wrapper-apps-block">
 					<!--<div class="apps-block apps-packages__apps-block">
 						<div class="apps-block__picture-left"></div>
@@ -43,7 +47,15 @@
 					</div>
 					-->
 					</div>
-							
+					<ul class="apps-packages__list-nav-points">
+						<li class="apps-packages__nav-points" onclick="pointsRewind(0)"></li>
+						<li class="apps-packages__nav-points" onclick="pointsRewind(1)"></li>
+						<li class="apps-packages__nav-points" onclick="pointsRewind(2)"></li>
+						<li class="apps-packages__nav-points" onclick="pointsRewind(3)"></li>
+						<li class="apps-packages__nav-points" onclick="pointsRewind(4)"></li>
+						<li class="apps-packages__nav-points" onclick="pointsRewind(5)"></li>
+						<li class="apps-packages__nav-points" onclick="pointsRewind(6)"></li>
+					</ul>		
 				</div>
 
 				<div class="apps-multi-threaded">
@@ -118,6 +130,6 @@
 					</div>
 				</div>
 			</div>
-		<script type="text/javascript" src="js/apps-block.js"></script>
+		<script type="text/javascript" src="js/mane-page_slider.js"></script>
 	</body>
 </html>
