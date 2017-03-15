@@ -191,21 +191,21 @@
 .apps-packages__apps-block:last-child{
 	margin-right: 0;
 }
-.apps-block__picture-left,
-.apps-block__picture-middle,
-.apps-block__picture-right{
+.apps-block__picture-first,
+.apps-block__picture-second,
+.apps-block__picture-third{
 	width: 20.5625rem;
 	height: 12.25rem;
 }
-.apps-block__picture-left{
+.apps-block__picture-first{
 	background-image:url(../img/mane-page/shot-1@3x.png);
 	background-size: cover;
 }
-.apps-block__picture-middle{
+.apps-block__picture-second{
 	background-image:url(../img/mane-page/shot-2@3x.png);
 	background-size: cover;
 }
-.apps-block__picture-right{
+.apps-block__picture-third{
 	background-image:url(../img/mane-page/shot-3@3x.png);
 	background-size: cover;
 }

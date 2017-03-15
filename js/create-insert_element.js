@@ -29,3 +29,51 @@ function insertHtmlElement(parentTagName, parentClassName, child){
 	//	console.log(parent);
 	parent.appendChild(child);
 };
+/*----------------------------------------Преобразование Unix в текстовый вид "dd_месяц_yy"------------------------------*/
+function convertUnixDate(ms){
+	var dateText = "";
+	var dd, mm, yy;
+	ms = new Date(ms*1000);
+	dd = ms.getDate();
+	switch(ms.getMonth()) {
+ 		case 0:
+ 			mm = "января";
+ 			break;
+ 		case 1:
+ 			mm = "февраля";
+ 			break;
+ 		case 2:
+ 			mm = "марта";
+ 			break;
+ 		case 3:
+ 			mm = "апреля";
+ 			break;
+ 		case 4: 
+ 			mm = "мая";
+ 			break;
+ 		case 5: 
+ 			mm = "июня";
+ 			break;
+ 		case 6: 
+ 			mm = "июля";
+ 			break;
+ 		case 7: 
+ 			mm = "августа";
+ 			break;
+ 		case 8: 
+ 			mm = "сентября";
+ 			break;
+ 		case 9: 
+ 			mm = "октября";
+ 			break;
+ 		case 10: 
+ 			mm = "ноября";
+ 			break;
+ 		case 11: 
+ 			mm = "декабря";
+ 			break;
+    }
+    yy = ms.getFullYear();
+	return(dd + " " + mm + " " + yy);
+
+};

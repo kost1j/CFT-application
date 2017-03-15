@@ -121,78 +121,76 @@ function pointsRewind(index){
 	//console.log("leftFocusRange:",leftFocusRange,"\n","rightFocusRange:",rightFocusRange);/*Проверка границ фокуса вывода*/
 	appsPackegConstructor("apps-packages__wrapper-apps-block", massIndexDisplay, leftFocusRange, rightFocusRange, appsPackages.length);
 };
-var appsPackages = [
-	/*0*/
-	firstBlock = {
-		pictureClass:"apps-block__picture-left",
-		linkHref: "#",
-		linkText: "Стандартный пакет",
-		linkClass: "apps-block__banner",
-		timeText: "08 впреля 2012",
-		timeClass: "apps-block__time"
-	},
-	/*1*/
-	secondBlock = {
-		pictureClass:"apps-block__picture-middle",
-		linkHref: "CFT-bank-page.html",
-		linkText: "Новый ЦФТ-банк", 
-		linkClass: "apps-block__banner",
-		timeText: "09 сентября 2016",
-		timeClass: "apps-block__time"
-	},
-	/*2*/
-	thirdBlock = {
-		pictureClass:"apps-block__picture-right",
-		linkHref: "#",
-		linkText: "Каталог разработок", 
-		linkClass: "apps-block__banner",
-		timeText: "03 марта 2015",
-		timeClass: "apps-block__time"
-	},
-	/*3*/
-	fourthBlock  = {
-		pictureClass:"apps-block__picture-left",
-		linkHref: "#",
-		linkText: "Стандартный пакет",
-		linkClass: "apps-block__banner",
-		timeText: "08 впреля 2012",
-		timeClass: "apps-block__time"
-	},
-	/*4*/
-	fifthBlock  = {
-		pictureClass:"apps-block__picture-middle",
-		linkHref: "CFT-bank-page.html",
-		linkText: "Новый ЦФТ-банк", 
-		linkClass: "apps-block__banner",
-		timeText: "09 сентября 2016",
-		timeClass: "apps-block__time"
-	},
-	/*5*/
-	sixthBlock = {
-		pictureClass:"apps-block__picture-right",
-		linkHref: "#",
-		linkText: "Каталог разработок", 
-		linkClass: "apps-block__banner",
-		timeText: "03 марта 2015",
-		timeClass: "apps-block__time"
-	},
-	/*6*/
-	seventhBlock = {
-		pictureClass:"apps-block__picture-right",
-		linkHref: "#",
-		linkText: "Каталог разработок", 
-		linkClass: "apps-block__banner",
-		timeText: "03 марта 2015",
-		timeClass: "apps-block__time"
+/*---------------------------функция создания объекта представления appsPackages из Json данных--------------------------*/
+function formAppsPackegesData(packegesData){
+	var resultPackegesData = [];
+	for(var i=0; i < packegesData.length; i++){
+		resultPackegesData[i] = { 
+			id: packegesData[i].id,
+			linkText: packegesData[i].title,
+			timeText: convertUnixDate(packegesData[i].last),
+			timeUnix: packegesData[i].last,
+			pictureClass: (appsPackagesGuid[0])[packegesData[i].guid],
+			linkHref: (appsPackagesGuid[1])[packegesData[i].guid],
+			linkClass: appsPackagesGuid[2],
+			timeClass: appsPackagesGuid[3]
+		}
 	}
-]
-var blockAmount = 3;/*кол-во отображаемых блоков слайдера*/
-var leftFocusRange = appsPackages.length-1;/*6 - порядковый номер начального левого блока слайдера*/
-var rightFocusRange = blockAmount-2;/*1 - порядковый номер начального правого блока слайдера*/
-var massIndexDisplay = 	selectionDisplayType(false, appsPackages.length);/* выбор типа последовательности отображения*/
-var parent = document.querySelector('.apps-packages__wrapper-apps-block');/*основной родитель*/
-var navDoteList = document.getElementsByClassName("apps-packages__nav-points");/*список элементов кнопок навигации*/
+	return (resultPackegesData);
+};
+
+var appsPackages = [];
+var blockAmount;
+var leftFocusRange;
+var rightFocusRange;
+var massIndexDisplay;
+var parent;
+var navDoteList;
+var	navDote;
+/*------------------------------значения guid*/
+var appsPackagesGuid = [
+	pictureClass = {
+		"4303db00-07f7-11e7-93ae-92361f002671": "apps-block__picture-first",
+		"4303dd8a-07f7-11e7-93ae-92361f002671": "apps-block__picture-second",
+		"4303de8e-07f7-11e7-93ae-92361f002671": "apps-block__picture-third",
+		"4303df60-07f7-11e7-93ae-92361f002671": "apps-block__picture-first",
+		"4303e03c-07f7-11e7-93ae-92361f002671": "apps-block__picture-second",
+		"4303e384-07f7-11e7-93ae-92361f002671": "apps-block__picture-third",
+		"4303e46a-07f7-11e7-93ae-92361f002671": "apps-block__picture-first"
+	},
+	linkHref = {
+		"4303db00-07f7-11e7-93ae-92361f002671": "#",
+		"4303dd8a-07f7-11e7-93ae-92361f002671": "CFT-bank-page.html",
+		"4303de8e-07f7-11e7-93ae-92361f002671": "#",
+		"4303df60-07f7-11e7-93ae-92361f002671": "#",
+		"4303e03c-07f7-11e7-93ae-92361f002671": "CFT-bank-page.html",
+		"4303e384-07f7-11e7-93ae-92361f002671": "#",
+		"4303e46a-07f7-11e7-93ae-92361f002671": "#"
+	},
+	linkClass = "apps-block__banner",
+	timeClass = "apps-block__time"
+];
+
+var xhr = new XMLHttpRequest();
+	xhr.open("GET", "api/apps_list.json", true);
+	xhr.send();
+xhr.onload = function(){
+	appsPackages = formAppsPackegesData(JSON.parse(xhr.responseText));
+
+	blockAmount = 3;/*кол-во отображаемых блоков слайдера*/
+	leftFocusRange = appsPackages.length-1;/*6 - порядковый номер начального левого блока слайдера*/
+	rightFocusRange = blockAmount-2;/*1 - порядковый номер начального правого блока слайдера*/
+	massIndexDisplay = 	selectionDisplayType(false, appsPackages.length);/* выбор типа последовательности отображения*/
+	parent = document.querySelector('.apps-packages__wrapper-apps-block');/*основной родитель*/
+	navDoteList = document.getElementsByClassName("apps-packages__nav-points");/*список элементов кнопок навигации*/
 	navDote = navDoteList[0];/*выбор начальной-первой кнопки*/
 	navDote.className = navDote.className + " " + "apps-packages__nav-points_check";/*подсеветка кнопки навигации*/
-appsPackegConstructor("apps-packages__wrapper-apps-block", massIndexDisplay, leftFocusRange, rightFocusRange, appsPackages.length);/*вызов функции формирования блока слайдера*/
-//console.log("leftFocusRange:",leftFocusRange,"\n","rightFocusRange:",rightFocusRange);/*Проверка границ фокуса вывода*/
+
+	appsPackegConstructor("apps-packages__wrapper-apps-block", massIndexDisplay, leftFocusRange, rightFocusRange, appsPackages.length);
+	//console.log("leftFocusRange:",leftFocusRange,"\n","rightFocusRange:",rightFocusRange);/*Проверка границ фокуса вывода*/
+
+};
+
+
+
+
