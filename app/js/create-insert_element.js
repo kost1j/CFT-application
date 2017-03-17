@@ -4,11 +4,14 @@
 /*tagContentText - текстовое содержимое*/
 /*tagUrl - href ссылки ( используется при условии если(tagName == a) )*/
 /*tagContentTag - содержимоев виде тега ( используется при условии если(tagContentText=="")&&(tagContentTag !== "") )*/
+/*atribute - список атрибутов. Элементы списка в виде {name:"", value:""}*/
 
-function createHtmlElement(tagName, tagClassName, tagContentText, tagUrl, tagContentTag){
+function createHtmlElement(tagName, tagClassName, tagContentText, tagUrl, tagContentTag, atribute){
+	tagClassName = tagClassName||"";
 	tagUrl=tagUrl||"#";
 	tagContentText=tagContentText||"";
 	tagContentTag=tagContentTag||"";
+	atribute = atribute||"";
 	var child = document.createElement(tagName);
 	if(tagClassName!=="") child.className = tagClassName;
 	if(tagContentText!=="") {
@@ -17,6 +20,12 @@ function createHtmlElement(tagName, tagClassName, tagContentText, tagUrl, tagCon
 	 child.appendChild (tagContentTag);
 	}
 	if(tagName==="a") child.setAttribute('href', tagUrl);
+	
+	if(atribute!==""){ 
+		for(var i=0; i <atribute.length; i++){
+			child.setAttribute(atribute[i].name, atribute[i].value);
+		}
+	}
 	return(child);
 };
 /*-----------------------------------------функция вставки элемента в другой элемент HTML--------------------------------*/
@@ -24,9 +33,14 @@ function createHtmlElement(tagName, tagClassName, tagContentText, tagUrl, tagCon
 /*parentClassName - название класса родительского элемента*/
 /*child - вставляемый элемент*/
 function insertHtmlElement(parentTagName, parentClassName, child){
-	var parent = document.getElementsByClassName(parentClassName);
-		parent = parent[parent.length - 1];
-	//	console.log(parent);
+	parentTagName = parentTagName||"";
+	var parent;
+	if(parentClassName!==""){
+		parent = document.getElementsByClassName(parentClassName);
+	}else if (parentTagName!==""){
+		parent = document.getElementsByTagName(parentTagName);
+	}
+	parent = parent[parent.length - 1];
 	parent.appendChild(child);
 };
 /*----------------------------------------Преобразование Unix в текстовый вид "dd_месяц_yy"------------------------------*/

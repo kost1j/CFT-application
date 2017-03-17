@@ -1,3 +1,4 @@
+
 /*---------------------------------------функция получения рандомного целого между max и min----------------------------*/
 function getRandomInt(min, max)
 {
@@ -40,7 +41,7 @@ function selectionDisplayType(displayType, sliderBlockQuantity){
 		return(massIndexGradual);
 	}
 };
-/*-------------------------------------функция формирования формирования блоков слайдера---------------------------------*/
+/*-----------------------------------------------------функция формирования блоков слайдера---------------------------------*/
 /*mainParent - основной родитель*/
 /*massIndex - массив индексов отображения блоков*/
 /*leftRange - левая граница отображения*/
@@ -59,6 +60,13 @@ function appsPackegConstructor(mainParent, massIndex, leftRange, rightRange, sli
 		insertHtmlElement("", "apps-packages__apps-block", createHtmlElement("time", innerBlock.timeClass, innerBlock.timeText));
 		//console.log("Порядковый номер объекта: ",massIndex[i],"\n",innerBlock=appsPackages[massIndex[i]],"\n","----------------------------");
 		i++;
+	}
+};
+/*-------------------------------------------функция формирования навигационных точек слайдера----------------------------------------*/
+function createNavigationDote(sliderBlockQuantity){
+	for( var i=0; i < sliderBlockQuantity; i++){
+		insertHtmlElement("ul", "apps-packages__list-nav-points",
+		 		createHtmlElement("li", "apps-packages__nav-points", "", "", "", [{name: "onclick", value: "pointsRewind("+i+")"}]));	
 	}
 };
 /*-----------------------------------функция изменения фокуса слайдера при перемотке назад-------------------------------*/
@@ -81,7 +89,7 @@ function leftRewind(){
 	appsPackegConstructor("apps-packages__wrapper-apps-block", massIndexDisplay, leftFocusRange, rightFocusRange, appsPackages.length);
 	navDote.className = navDote.className + " " + "apps-packages__nav-points_check";
 };
-/*-------------------------------------функция изменения слайдера при перемотке вперед-----------------------------------*/
+/*-------------------------------------функция изменения фокуса слайдера при перемотке вперед-----------------------------------*/
 function rightRewind(){
 	parent.innerHTML="";
 	navDote.className = "apps-packages__nav-points";
@@ -138,7 +146,36 @@ function formAppsPackegesData(packegesData){
 	}
 	return (resultPackegesData);
 };
+function createManePageSlider(){
+	var xhr = new XMLHttpRequest();
+		xhr.open("GET", "api/apps_list.json", true);
+		xhr.send();
+	xhr.onload = function(){
+		appsPackages = formAppsPackegesData(JSON.parse(xhr.responseText));
 
+		blockAmount = 3;/*кол-во отображаемых блоков слайдера*/
+		leftFocusRange = appsPackages.length-1;/*6 - порядковый номер начального левого блока слайдера*/
+		rightFocusRange = blockAmount-2;/*1 - порядковый номер начального правого блока слайдера*/
+		massIndexDisplay = 	selectionDisplayType(false, appsPackages.length);/* выбор типа последовательности отображения*/
+		/*-------------------------------создание точек*/
+		createNavigationDote(appsPackages.length);
+		parent = document.querySelector('.apps-packages__wrapper-apps-block');/*основной родитель*/
+		navDoteList = document.getElementsByClassName("apps-packages__nav-points");/*список элементов кнопок навигации*/
+		/*--------------------обнуление классов*/
+		if (parent) {
+			parent.innerHTML="";
+			for(var i=0; i < navDoteList.length; i++){
+				navDoteList[i].className = "apps-packages__nav-points"
+			}
+		}
+		navDote = navDoteList[0];/*выбор начальной-первой кнопки*/
+		navDote.className = navDote.className + " " + "apps-packages__nav-points_check";/*подсеветка кнопки навигации*/
+
+		appsPackegConstructor("apps-packages__wrapper-apps-block", massIndexDisplay, leftFocusRange, rightFocusRange, appsPackages.length);
+		//console.log("leftFocusRange:",leftFocusRange,"\n","rightFocusRange:",rightFocusRange);/*Проверка границ фокуса вывода*/
+
+	};
+};
 var appsPackages = [];
 var blockAmount;
 var leftFocusRange;
@@ -160,36 +197,16 @@ var appsPackagesGuid = [
 	},
 	linkHref = {
 		"4303db00-07f7-11e7-93ae-92361f002671": "#",
-		"4303dd8a-07f7-11e7-93ae-92361f002671": "CFT-bank-page.html",
+		"4303dd8a-07f7-11e7-93ae-92361f002671": "#",
 		"4303de8e-07f7-11e7-93ae-92361f002671": "#",
 		"4303df60-07f7-11e7-93ae-92361f002671": "#",
-		"4303e03c-07f7-11e7-93ae-92361f002671": "CFT-bank-page.html",
+		"4303e03c-07f7-11e7-93ae-92361f002671": "#",
 		"4303e384-07f7-11e7-93ae-92361f002671": "#",
 		"4303e46a-07f7-11e7-93ae-92361f002671": "#"
 	},
 	linkClass = "apps-block__banner",
 	timeClass = "apps-block__time"
 ];
-
-var xhr = new XMLHttpRequest();
-	xhr.open("GET", "api/apps_list.json", true);
-	xhr.send();
-xhr.onload = function(){
-	appsPackages = formAppsPackegesData(JSON.parse(xhr.responseText));
-
-	blockAmount = 3;/*кол-во отображаемых блоков слайдера*/
-	leftFocusRange = appsPackages.length-1;/*6 - порядковый номер начального левого блока слайдера*/
-	rightFocusRange = blockAmount-2;/*1 - порядковый номер начального правого блока слайдера*/
-	massIndexDisplay = 	selectionDisplayType(false, appsPackages.length);/* выбор типа последовательности отображения*/
-	parent = document.querySelector('.apps-packages__wrapper-apps-block');/*основной родитель*/
-	navDoteList = document.getElementsByClassName("apps-packages__nav-points");/*список элементов кнопок навигации*/
-	navDote = navDoteList[0];/*выбор начальной-первой кнопки*/
-	navDote.className = navDote.className + " " + "apps-packages__nav-points_check";/*подсеветка кнопки навигации*/
-
-	appsPackegConstructor("apps-packages__wrapper-apps-block", massIndexDisplay, leftFocusRange, rightFocusRange, appsPackages.length);
-	//console.log("leftFocusRange:",leftFocusRange,"\n","rightFocusRange:",rightFocusRange);/*Проверка границ фокуса вывода*/
-
-};
 
 
 

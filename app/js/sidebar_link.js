@@ -1,46 +1,61 @@
-function formSidebarLinkData(sidebarData){
-	var resultSidebarData = [];
-	for(var i=0; i <sidebarData.length; i++){
-		resultSidebarData[i] = {
-			id: sidebarData[i].id,
-			linkHref: sidebarLinkGuid[sidebarData[i].guid],
-			linkText: sidebarData[i].title,
-			timeUnix: sidebarData[i].last
+function formSidebarLinkData(sidebarData, sidebarGuid){
+		var resultSidebarData = [];
+		for(var i=0; i <sidebarData.length; i++){
+			resultSidebarData[i] = {
+				id: sidebarData[i].id,
+				linkOnclicIndex: sidebarGuid[sidebarData[i].guid],
+				linkHref: "#",
+				linkText: sidebarData[i].title,
+				timeUnix: sidebarData[i].last
+			}
 		}
-	}
-	return(resultSidebarData);
+		return(resultSidebarData);
 };
+function createCatalogPage(){
+	var parent = document.querySelector('.middle');
+			if (parent) parent.innerHTML = ""; /*Очистка блока*/
+	(document.querySelector('.middle')).className ="middle";
+	
+	/*---------------------------------создание структуры сайдбара*/
+	insertHtmlElement("div", "middle",
+		 			createHtmlElement("aside", "sidebar sidebar__list_background-white"));
+	insertHtmlElement("aside", "sidebar",
+		 			createHtmlElement("h2", "sidebar__banner", "Каталог приложений"));
+	insertHtmlElement("aside", "sidebar",
+		 			createHtmlElement("ul", "sidebar__list"));
 
-sidebarLinkGuid={
-	"37b53ff4-0933-11e7-93ae-92361f002671" : "#",
-	"37b5426a-0933-11e7-93ae-92361f002671" : "CFT-bank-page.html",
-	"37b5471a-0933-11e7-93ae-92361f002671" : "#",
-	"37b5481e-0933-11e7-93ae-92361f002671" : "Rent-safes-page.html",
-	"37b548fa-0933-11e7-93ae-92361f002671" : "#",
-	"37b549cc-0933-11e7-93ae-92361f002671" : "#",
-	"37b54a8a-0933-11e7-93ae-92361f002671" : "#",
-	"37b54b5c-0933-11e7-93ae-92361f002671" : "#",
-	"37b54f08-0933-11e7-93ae-92361f002671" : "#",
-	"37b54ff8-0933-11e7-93ae-92361f002671" : "#",
-	"37b5516a-0933-11e7-93ae-92361f002671" : "#",
-	"37b552b4-0933-11e7-93ae-92361f002671" : "#",
-	"37b55386-0933-11e7-93ae-92361f002671" : "#",
-	"37b5544e-0933-11e7-93ae-92361f002671" : "#"
-}
-
-var sidebarList =[];
-var xhr = new XMLHttpRequest();
-	xhr.open("GET","api/sidebar_list.json", true);
-	xhr.send();
-xhr.onload = function(){
-	sidebarList = formSidebarLinkData(JSON.parse(xhr.responseText));
-	/*-------------------------------------------------создание и отображение элементов sidebar*/
-	for(var i=0; i < sidebarList.length;i++){
-		insertHtmlElement("", "sidebar__list",
- 			createHtmlElement("li", "", "", "",
- 				createHtmlElement("a", "sidebar__link", sidebarList[i].linkText, sidebarList[i].linkHref)));
+/*------------------------------значения guid*/
+	var sidebarOnclicIndexGuid={
+		"4303db00-07f7-11e7-93ae-92361f002671" : 0,
+		"4303dd8a-07f7-11e7-93ae-92361f002671" : 1,
+		"37b5471a-0933-11e7-93ae-92361f002671" : 2,
+		"37b5481e-0933-11e7-93ae-92361f002671" : 3,
+		"37b548fa-0933-11e7-93ae-92361f002671" : 4,
+		"37b549cc-0933-11e7-93ae-92361f002671" : 5,
+		"37b54a8a-0933-11e7-93ae-92361f002671" : 6,
+		"37b54b5c-0933-11e7-93ae-92361f002671" : 7,
+		"37b54f08-0933-11e7-93ae-92361f002671" : 8,
+		"37b54ff8-0933-11e7-93ae-92361f002671" : 9,
+		"37b5516a-0933-11e7-93ae-92361f002671" : 10,
+		"37b552b4-0933-11e7-93ae-92361f002671" : 11,
+		"37b55386-0933-11e7-93ae-92361f002671" : 12,
+		"37b5544e-0933-11e7-93ae-92361f002671" : 13
 	}
+
+	var sidebarList =[];
+	var xhr = new XMLHttpRequest();
+		xhr.open("GET","api/sidebar_list.json", true);
+		xhr.send();
+	xhr.onload = function(){
+		sidebarList = formSidebarLinkData(JSON.parse(xhr.responseText), sidebarOnclicIndexGuid);
+		/*-------------------------------------------------создание и отображение элементов sidebar*/
+		for(var i=0; i < sidebarList.length;i++){
+			insertHtmlElement("", "sidebar__list",
+	 			createHtmlElement("li", "", "", "",
+	 				createHtmlElement("a", "sidebar__link", sidebarList[i].linkText, sidebarList[i].linkHref,"",
+	 					[{name: "onclick", value:"createMainBlockCatalogPage("+sidebarList[i].linkOnclicIndex+")"}])));
+		}
+	};
+	createMainBlockCatalogPage(1);/*страница при первом запуске*/
 };
-
-
 

@@ -1,0 +1,22 @@
+{
+  "name": "cftapp",
+  "version": "1.0.0",
+  "description": "\"\"\u001b",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kost1j/CFT-application.git"
+  },
+  "author": "\"Lobov Konstantin\"",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kost1j/CFT-application/issues"
+  },
+  "homepage": "https://github.com/kost1j/CFT-application#readme",
+  "devDependencies": {
+    "browser-sync": "^2.18.8"
+  }
+}

@@ -387,7 +387,7 @@
 	padding-left: 2.5625rem;
 	padding-right: 2.5625rem;
 }
-.main__content-wrapper{
+.main__wrapper-content{
 	padding-left: 2.125rem;
 	padding-right: 2.5625rem;
 }
@@ -491,41 +491,47 @@
 	content: "";
 	clear: both;	
 }
-.product-discription__text{
+.product-discription__wrapper-text{
 	float: left;
 	width: 25rem;
 	font-size: 1.25rem;
 	line-height: 1.5625rem;
 	color: #79878e;
-	
 }
-.product-discription__time{
+.product__requirements-text{
+	margin-top:1.5625rem;
+}
+.product-discription__last-update{
 	display: inline-block;
 	font-size: 1rem;
     color: #adafb2;
     margin-bottom: 0.875rem;
 }
-.product__demands{
-	color: #4f5659;
-}
-.product__demands-data{
-	color: #79878e;
-}
 .product-discription__picture-block{
 	float: right;
 	
 }
-.product-discription__picture{
+
+.product-discription__picture-new-cft-bank{
+	background: url("../img/pages/shot-2@3x.png") 50% 50% no-repeat;
+}
+.product-discription__picture-standard-package{
+	background: url("../img/pages/shot-1@3x.png") 50% 50% no-repeat;
+}
+.product-discription__picture-none{
+	background: url("../img/pages/shot-none.png") 50% 50% no-repeat;
+}
+.product-discription__picture-new-cft-bank,
+.product-discription__picture-standard-package,
+.product-discription__picture-none{
 	width: 15.6875rem;
 	height: 11.75rem;
-	background: url("../img/pages/shot-2@3x.png") 50% 50% no-repeat;
 	-webkit-background-size: contain;
 	   -moz-background-size: contain;
 	    -ms-background-size: contain;
 	     -o-background-size: contain;
 	        background-size: contain;
 }
-
 .product-discription__buttom_style_red-border{
 	display: block;
 	border: 1px solid #ed1b2f;
