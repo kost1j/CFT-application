@@ -1,7 +1,7 @@
 function createManePage(){
 	var parent = document.querySelector('.middle');
 			if (parent) parent.innerHTML = ""; /*Очистка блока*/
-	var atributs=[];
+
 	(document.querySelector('.middle')).className ="middle middle_background-white";
 	 /*------------------------------------------------блок слайдера---------------------------------------------*/
 	insertHtmlElement("div", "middle",
@@ -11,7 +11,7 @@ function createManePage(){
 	insertHtmlElement("div", "apps-packages__header",
 		 		createHtmlElement("h3", "apps-packages__banner", "Пакет приложений"));
 	/*{--------------*/
-	atributs = [
+	var atributs = [
 		{
 			name: "type",
 			value: "text"
@@ -44,7 +44,7 @@ function createManePage(){
 		xhrMultiTthreaded.send();
 	xhrMultiTthreaded.onload = function(){
 		var appsMultiTthreadedData = JSON.parse(xhrMultiTthreaded.responseText);
-		console.log(appsMultiTthreadedData);
+		//console.log(appsMultiTthreadedData);
 	    insertHtmlElement("div", "middle",
 			 		createHtmlElement("div", "apps-multi-threaded"));
 	    insertHtmlElement("div", "apps-multi-threaded",
@@ -115,4 +115,21 @@ function createManePage(){
 	};
 	createManePageSlider();/*Создаем слайдер*/
 };
-createManePage();/*Первый запуск приложения*/
+/*------------------------------------------Функция создания базовых блоков приложения-------------------------*/
+function createAppPageStructure(){
+	console.log("asdasfasfa",mainBascet.listPurchase);
+	var body = document.querySelector('body');
+		body.className = "apps-page-body";
+	document.querySelector('.body__wrapper').className = "body__wrapper";
+	document.querySelector('.body__wrapper').innerHTML = "";
+	var bodyWrapper = document.querySelector('.body__wrapper');
+	var appPageTemplate = document.querySelector('.cft-page');
+	var clone = document.importNode(appPageTemplate.content, true);
+	bodyWrapper.appendChild(clone);
+	if(mainBascet.listPurchase.length !== 0){
+		/*вышли из корзины не закончив операцию*/
+		document.querySelector('.navigation-bascet__value').innerHTML = mainBascet.listPurchase.length;
+	}
+	createManePage();
+}
+document.addEventListener("DOMContentLoaded", createAppPageStructure);/*запускаем постройку приложения после HTML*/

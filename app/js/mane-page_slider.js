@@ -49,7 +49,7 @@ function selectionDisplayType(displayType, sliderBlockQuantity){
 /*sliderBlockQuantity - кол-во блоков в слайдере*/
 function appsPackegConstructor(mainParent, massIndex, leftRange, rightRange, sliderBlockQuantity){
 	var innerBlock = 0; 
-	console.log("---------------","\n",massIndex,"\n","---------------","Кол-во объектов", sliderBlockQuantity);
+	//console.log("---------------","\n",massIndex,"\n","---------------","Кол-во объектов", sliderBlockQuantity);
 	var i = leftRange;
 	while(i!==(rightRange+1)){
 		if(i==(sliderBlockQuantity))i=0;
@@ -148,7 +148,7 @@ function formAppsPackegesData(packegesData){
 };
 function createManePageSlider(){
 	var xhr = new XMLHttpRequest();
-		xhr.open("GET", "api/apps_list.json", true);
+		xhr.open("GET", "api/apps_slider_list.json", true);
 		xhr.send();
 	xhr.onload = function(){
 		appsPackages = formAppsPackegesData(JSON.parse(xhr.responseText));

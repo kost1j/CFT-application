@@ -6,25 +6,93 @@
 		<link rel="stylesheet" href="css/normalize.css"/>
 		<link rel="stylesheet" href="css/style.css" />
 		<script type="text/javascript" src="js/create-insert_element.js"></script>
+		<script type="text/javascript" src ="js/bascet_page.js"></script>
+		<script type="text/javascript" src="js/mane-page_slider.js"></script>
+		<script type="text/javascript" src="js/mane-page.js"></script>
+		<script type="text/javascript" src="js/sidebar_link.js"></script>
+		<script type="text/javascript" src="js/app_catalog_page.js"></script>
 	</head>
-	<body class="page-body">
-		
+	<body>
+		<div class="body__wrapper"></div>
+		<template class="cft-page">
 			<header class="header">
 				<div class=" header-wrapper">
 					<nav class="navigation navigation__header">
+						<div class="navigation-bascet">
+							<a href="#" class="navigation-bascet__link" onclick="createBascetPageStructure()"></a>
+							<span class="navigation-bascet__value"></span>
+						</div>
 						<a href="#" class="navigation__link" onclick="createManePage()">Главная</a>
 						<a href="#" class="navigation__link" onclick="createCatalogPage()">Каталог приложений</a>
 						<a href="#" class="navigation__link">О компании</a>
 					</nav>
-				<a href="" class="header__logo" onclick="createManePage()"></a>					
+				<a href="#" class="header__logo" onclick="createManePage()"></a>					
 				</div>
 			</header>
 			<div class="middle">
 
 			</div>
-		<script type="text/javascript" src="js/mane-page_slider.js"></script>
-		<script type="text/javascript" src="js/mane-page.js"></script>
-		<script type="text/javascript" src="js/sidebar_link.js"></script>
-		<script type="text/javascript" src ="js/app_catalog_page.js"></script>
+		</template>
+		<template class="cart-header-template">
+				<header class="cart-header">
+					<ul class="cart-navigation cart-header__cart-navigation">
+						<li class="cart-navigation__block">
+							<a href="#">
+								<div class="cart-navigation__circle cart-navigation_style_link">1</div>
+								<div class="cart-navigation__wrapper-text">
+									<p class="cart-navigation__text cart-navigation__text_style_link">Корзина</p>
+								</div>
+							</a>
+						</li>
+						<li class="cart-navigation__line"></li>
+						<li class="cart-navigation__block">
+							<div class="cart-navigation__circle">2</div>
+							<div class="cart-navigation__wrapper-text">
+								<p class="cart-navigation__text">Оплата</p>
+							</div>
+						</li>
+						<li class="cart-navigation__line"></li>
+						<li class="cart-navigation__block">
+							<div class="cart-navigation__circle">3</div>
+							<div class="cart-navigation__wrapper-text">
+								<p class="cart-navigation__text">Доставка</p>
+							</div>
+						</li>
+						<li class="cart-navigation__line"></li>
+						<li class="cart-navigation__block">
+							<div class="cart-navigation__circle">4</div>
+							<div class="cart-navigation__wrapper-text">
+								<p class="cart-navigation__text">Завершено</p>
+							</div>
+						</li>
+					</ul>
+				</header>
+			</template>
+			<template class="cart-table-shopping-template">
+				<table class="table-shopping">
+					<thead> 
+						<tr>
+							<th class="table-shopping__head-product"></th>
+							<th class="table-shopping__head-cost">Стоимость</th>
+							<th class="table-shopping__head-total">Итого</th>
+							<th class="table-shopping__head-delet"></th>
+						</tr>
+					</thead>
+					<tbody class="table-shopping__body">
+						
+					</tbody>
+				</table>
+					<div class="cart1-return-bottons__wrapper">
+						
+					</div>
+					<a href="Cart2.html" class="cart1-next-button cart1-next-button_style_red">Далее</a>
+					<div class="total-cost">
+						<p class="total-cost__text">Итого</p>
+						<p class="total-cost__integer"></p>
+					</div>
+			</template>
+			<template class="cart1-return-bottons-template">
+				<a href="#" class="cart1-return-bottons cart1-return-bottons_style_gray-border" onclick="createAppPageStructure()">Вернуться назад</a>
+			</template>
 	</body>
 </html>

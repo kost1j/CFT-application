@@ -24,7 +24,7 @@ function createAppCatalogElement(catalogData){
 		 			createHtmlElement("p", "product__description-text",catalogData.description));
 
 		insertHtmlElement("div", "product-discription__wrapper-text",
-		 			createHtmlElement("p", "product__requirements-text",catalogData.requirements));
+		 			createHtmlElement("p", "product__requirements-text",catalogData.requirements + "<br>"+"<br>" + "Стоимость приложения: " + catalogData.price + "$"));
 		
 		insertHtmlElement("div", "product-discription",
 		 			createHtmlElement("div", "product-discription__picture-block"));
@@ -33,7 +33,8 @@ function createAppCatalogElement(catalogData){
 		 			createHtmlElement("div", catalogData.pictureClass));
 
 		insertHtmlElement("div", "product-discription__picture-block",
-		 			createHtmlElement("a", "product-discription__buttom product-discription__buttom_style_red-border", "В корзину","Cart1.html"));
+		 			createHtmlElement("a", "product-discription__buttom product-discription__buttom_style_red-border", "В корзину","","",
+		 				[{name: "onclick", value: "inBascet("+catalogData.id+")"}]));
 
 		/*----------------------*/
 
@@ -61,9 +62,10 @@ function createAppCatalogElement(catalogData){
 				pictureClass: catalogGuid[catalogData[i].guid],
 				description: catalogData[i].description,
 				requirements: catalogData[i].requirements,
-				features: catalogData[i].features
+				features: catalogData[i].features,
+				price: catalogData[i].price
 			}
-		console.log(resultCatalogData);
+		//console.log(resultCatalogData);
 		return(resultCatalogData);
 	};
 
