@@ -147,34 +147,35 @@ function formAppsPackegesData(packegesData){
 	return (resultPackegesData);
 };
 function createManePageSlider(){
-	var xhr = new XMLHttpRequest();
-		xhr.open("GET", "api/apps_slider_list.json", true);
-		xhr.send();
-	xhr.onload = function(){
-		appsPackages = formAppsPackegesData(JSON.parse(xhr.responseText));
-
-		blockAmount = 3;/*кол-во отображаемых блоков слайдера*/
-		leftFocusRange = appsPackages.length-1;/*6 - порядковый номер начального левого блока слайдера*/
-		rightFocusRange = blockAmount-2;/*1 - порядковый номер начального правого блока слайдера*/
-		massIndexDisplay = 	selectionDisplayType(false, appsPackages.length);/* выбор типа последовательности отображения*/
-		/*-------------------------------создание точек*/
-		createNavigationDote(appsPackages.length);
-		parent = document.querySelector('.apps-packages__wrapper-apps-block');/*основной родитель*/
-		navDoteList = document.getElementsByClassName("apps-packages__nav-points");/*список элементов кнопок навигации*/
-		/*--------------------обнуление классов*/
-		if (parent) {
-			parent.innerText="";
-			for(var i=0; i < navDoteList.length; i++){
-				navDoteList[i].className = "apps-packages__nav-points"
+	httpGet("api/apps_slider_list.json").then(
+	    function(response){
+	        appsPackages = formAppsPackegesData(response);
+	        blockAmount = 3;/*кол-во отображаемых блоков слайдера*/
+	        leftFocusRange = appsPackages.length-1;/*6 - порядковый номер начального левого блока слайдера*/
+	        rightFocusRange = blockAmount-2;/*1 - порядковый номер начального правого блока слайдера*/
+	        massIndexDisplay = 	selectionDisplayType(false, appsPackages.length);/* выбор типа последовательности отображения*/
+	        /*-------------------------------создание точек*/
+			createNavigationDote(appsPackages.length);
+			parent = document.querySelector('.apps-packages__wrapper-apps-block');/*основной родитель*/
+			navDoteList = document.getElementsByClassName("apps-packages__nav-points");/*список элементов кнопок навигации*/
+			/*--------------------обнуление классов*/
+			if (parent) {
+				parent.innerText="";
+				for(var i=0; i < navDoteList.length; i++){
+					navDoteList[i].className = "apps-packages__nav-points"
+				}
 			}
-		}
-		navDote = navDoteList[0];/*выбор начальной-первой кнопки*/
-		navDote.className = navDote.className + " " + "apps-packages__nav-points_check";/*подсеветка кнопки навигации*/
+			navDote = navDoteList[0];/*выбор начальной-первой кнопки*/
+			navDote.className = navDote.className + " " + "apps-packages__nav-points_check";/*подсеветка кнопки навигации*/
 
-		appsPackegConstructor("apps-packages__wrapper-apps-block", massIndexDisplay, leftFocusRange, rightFocusRange, appsPackages.length);
-		//console.log("leftFocusRange:",leftFocusRange,"\n","rightFocusRange:",rightFocusRange);/*Проверка границ фокуса вывода*/
-
-	};
+			appsPackegConstructor("apps-packages__wrapper-apps-block", massIndexDisplay, leftFocusRange, rightFocusRange, appsPackages.length);
+			//console.log("leftFocusRange:",leftFocusRange,"\n","rightFocusRange:",rightFocusRange);/*Проверка границ фокуса вывода*/
+	    }, 
+	    
+	    function(textError){
+	        console.log(textError);
+	    }
+	);
 };
 var appsPackages = [];
 var blockAmount;

@@ -24,7 +24,7 @@ function createAppCatalogElement(catalogData){
 		 			createHtmlElement("p", "product__description-text",catalogData.description));
 
 		insertHtmlElement("div", "product-discription__wrapper-text",
-		 			createHtmlElement("p", "product__requirements-text",catalogData.requirements + "<br>"+"<br>" + "Стоимость приложения: " + catalogData.price + "$"));
+		 			createHtmlElement("p", "product__requirements-text",catalogData.requirements + "\n\n" + "Стоимость приложения: " + catalogData.price + "$"));
 		
 		insertHtmlElement("div", "product-discription",
 		 			createHtmlElement("div", "product-discription__picture-block"));
@@ -98,13 +98,16 @@ function createMainBlockCatalogPage(index){
 		"37b5544e-0933-11e7-93ae-92361f002671": "product-discription__picture-none"
 	}
 	var appCatalogData = {};
-	var xhr = new XMLHttpRequest();
-		xhr.open("GET","api/app_catalog_list.json", true);
-		xhr.send();
-	xhr.onload = function(){
-		appCatalogData = formAppCatalogData(JSON.parse(xhr.responseText), index, appCatalogGuid);
-		createAppCatalogElement(appCatalogData);
-	}
+	httpGet("api/app_catalog_list.json").then(
+	    function(response){
+	        appCatalogData = formAppCatalogData(response, index, appCatalogGuid);
+	        createAppCatalogElement(appCatalogData);
+	    }, 
+	    
+	    function(value){
+	        console.log(value)
+	    }
+	);
 };
 
 

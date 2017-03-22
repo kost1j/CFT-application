@@ -15,7 +15,7 @@ function createHtmlElement(tagName, tagClassName, tagContentText, tagUrl, tagCon
 	var child = document.createElement(tagName);
 	if(tagClassName!=="") child.className = tagClassName;
 	if(tagContentText!=="") {
-		child.innerText = tagContentText;
+		child.innerText = tagContentText;/------------------------------------/
 	}else if(tagContentTag!==""){
 	 child.appendChild (tagContentTag);
 	}

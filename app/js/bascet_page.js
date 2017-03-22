@@ -44,13 +44,17 @@ function createBascetTablePage(){
 	document.querySelector('.body__wrapper').appendChild(cartContentWrapper);
 
 	var appCatalogData = {};
-	var xhr = new XMLHttpRequest();
-		xhr.open("GET","api/app_catalog_list.json", true);
-		xhr.send();
-	xhr.onload = function(){
-		appCatalogData = JSON.parse(xhr.responseText);
-		fillTableBascetData(appCatalogData);
-	}
+
+	httpGet("api/app_catalog_list.json").then(
+	    function(response){
+	        appCatalogData = response;
+	        fillTableBascetData(appCatalogData);
+	    }, 
+	    
+	    function(value){
+	        console.log(value)
+	    }
+	);
 };
 /*---------------------------------------функция заполнения списка корзины--------------------------------------*/
 function fillTableBascetData(appCatalogData){

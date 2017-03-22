@@ -43,19 +43,24 @@ function createCatalogPage(){
 	}
 
 	var sidebarList =[];
-	var xhr = new XMLHttpRequest();
-		xhr.open("GET","api/sidebar_list.json", true);
-		xhr.send();
-	xhr.onload = function(){
-		sidebarList = formSidebarLinkData(JSON.parse(xhr.responseText), sidebarOnclicIndexGuid);
-		/*-------------------------------------------------создание и отображение элементов sidebar*/
-		for(var i=0; i < sidebarList.length;i++){
-			insertHtmlElement("", "sidebar__list",
-	 			createHtmlElement("li", "", "", "",
-	 				createHtmlElement("a", "sidebar__link", sidebarList[i].linkText, sidebarList[i].linkHref,"",
-	 					[{name: "onclick", value:"createMainBlockCatalogPage("+sidebarList[i].linkOnclicIndex+")"}])));
-		}
-	};
+
+	httpGet("api/sidebar_list.json").then(
+	    function(response){
+	       sidebarList = formSidebarLinkData(response, sidebarOnclicIndexGuid); 
+	       /*-------------------------------------------------создание и отображение элементов sidebar*/
+			for(var i=0; i < sidebarList.length;i++){
+				insertHtmlElement("", "sidebar__list",
+		 			createHtmlElement("li", "", "", "",
+		 				createHtmlElement("a", "sidebar__link", sidebarList[i].linkText, sidebarList[i].linkHref,"",
+		 					[{name: "onclick", value:"createMainBlockCatalogPage("+sidebarList[i].linkOnclicIndex+")"}])));
+			}
+	    }, 
+	    
+	    function(value){
+	        console.log(value)
+	    }
+	);
+
 	createMainBlockCatalogPage(1);/*страница при первом запуске*/
 };
 
