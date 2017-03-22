@@ -13,7 +13,7 @@ function formSidebarLinkData(sidebarData, sidebarGuid){
 };
 function createCatalogPage(){
 	var parent = document.querySelector('.middle');
-			if (parent) parent.innerHTML = ""; /*Очистка блока*/
+			if (parent) parent.innerText = ""; /*Очистка блока*/
 	(document.querySelector('.middle')).className ="middle";
 	
 	/*---------------------------------создание структуры сайдбара*/

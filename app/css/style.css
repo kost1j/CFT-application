@@ -55,7 +55,7 @@
 }
 .navigation__link{
 	display: inline-block;
-	padding-right: 2.5rem;
+	margin-right: 2.5rem;
 	color: #adafb2;
 	font-size: 1.125rem;
 	font-family: Arial;
@@ -897,7 +897,7 @@
 	margin-left: 1.4375rem;	
 }
 
-.cart-information__cart-name,
+.cart-information__cart-number,
 .cart-information__month,
 .cart-information__year,
 .cart-information__owner-name,
@@ -911,14 +911,14 @@
 	line-height: 1.86;
 	color: #9fa3a7;
 }
-.cart-information__cart-name:focus,
+.cart-information__cart-number:focus,
 .cart-information__month:focus,
 .cart-information__year:focus,
 .cart-information__owner-name:focus,
 .cart-information__cvv:focus{
 	color: #292929;
 }
-.cart-information__cart-name{
+.cart-information__cart-number{
 	width: 15.4375rem;
 }
 .cart-information__month,
@@ -932,6 +932,9 @@
 .cart-information__owner-name{
 	margin-top: 2.625rem;
 	width: 23.125rem;
+}
+.cart-information_style_error{
+	border: 1px solid #FF0000;	
 }
 .cart-information__down-form{
 	float: right;	
@@ -1049,6 +1052,9 @@
 .contact-information__email{
 	width: 18.8125rem;
 }
+.contact-information_style_error{
+	border: 1px solid #ff0000;
+}
 .cart3-complete-button{
 	float: right;
 	margin-top: 13.625rem;
@@ -1101,3 +1107,42 @@
 	border: 3px solid #ffc80a;
 }
 /*-------------------------------------------------------------_____}--CART-STYLE_____---------------------------------*/
+
+
+.animate-block-loader{
+	position: relative;
+	width: 100px;
+	height: 100px;
+	background: url(../img/load-arrow.png) 50% 50% no-repeat;
+	-webkit-background-size: contain;
+	   -moz-background-size: contain;
+	    -ms-background-size: contain;
+	     -o-background-size: contain;
+	        background-size: contain;
+	margin: 0 auto;
+	top: 200px;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+ 	animation-name: preloader;
+}
+
+@-webkit-keyframes preloader {
+    to { -webkit-transform: rotate(360deg); }
+}
+
+@-moz-keyframes preloader {
+    to { -moz-transform: rotate(360deg); }
+}
+
+@-ms-keyframes  preloader {
+    to { -ms-transform: rotate(360deg); }
+}
+
+@-o-keyframes preloader {
+    to { -o-transform: rotate(360deg); }
+}
+
+@keyframes preloader {
+    to { transform: rotate(360deg); }
+}

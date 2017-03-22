@@ -71,7 +71,7 @@ function createNavigationDote(sliderBlockQuantity){
 };
 /*-----------------------------------функция изменения фокуса слайдера при перемотке назад-------------------------------*/
 function leftRewind(){
-	parent.innerHTML="";
+	parent.innerText="";
 	navDote.className = "apps-packages__nav-points";
 	if (leftFocusRange!==0){
 		navDote = navDoteList[leftFocusRange];
@@ -91,7 +91,7 @@ function leftRewind(){
 };
 /*-------------------------------------функция изменения фокуса слайдера при перемотке вперед-----------------------------------*/
 function rightRewind(){
-	parent.innerHTML="";
+	parent.innerText="";
 	navDote.className = "apps-packages__nav-points";
 	if (leftFocusRange!==(appsPackages.length-1)){
 		leftFocusRange++;
@@ -112,7 +112,7 @@ function rightRewind(){
 /*--------------------------------функция изменения фокуса слайдера при нажатии на точку навигации-----------------------*/
 /*index - номер точки навигации*/
 function pointsRewind(index){
-	parent.innerHTML="";
+	parent.innerText="";
 	navDote.className = "apps-packages__nav-points";
 	navDote = navDoteList[index];
 	navDote.className = navDote.className + " " + "apps-packages__nav-points_check";
@@ -163,7 +163,7 @@ function createManePageSlider(){
 		navDoteList = document.getElementsByClassName("apps-packages__nav-points");/*список элементов кнопок навигации*/
 		/*--------------------обнуление классов*/
 		if (parent) {
-			parent.innerHTML="";
+			parent.innerText="";
 			for(var i=0; i < navDoteList.length; i++){
 				navDoteList[i].className = "apps-packages__nav-points"
 			}

@@ -1,6 +1,6 @@
 function createManePage(){
 	var parent = document.querySelector('.middle');
-			if (parent) parent.innerHTML = ""; /*Очистка блока*/
+			if (parent) parent.innerText = ""; /*Очистка блока*/
 
 	(document.querySelector('.middle')).className ="middle middle_background-white";
 	 /*------------------------------------------------блок слайдера---------------------------------------------*/
@@ -117,19 +117,19 @@ function createManePage(){
 };
 /*------------------------------------------Функция создания базовых блоков приложения-------------------------*/
 function createAppPageStructure(){
-	console.log("asdasfasfa",mainBascet.listPurchase);
 	var body = document.querySelector('body');
 		body.className = "apps-page-body";
 	document.querySelector('.body__wrapper').className = "body__wrapper";
-	document.querySelector('.body__wrapper').innerHTML = "";
+	document.querySelector('.body__wrapper').innerText = "";
 	var bodyWrapper = document.querySelector('.body__wrapper');
 	var appPageTemplate = document.querySelector('.cft-page');
 	var clone = document.importNode(appPageTemplate.content, true);
 	bodyWrapper.appendChild(clone);
 	if(mainBascet.listPurchase.length !== 0){
 		/*вышли из корзины не закончив операцию*/
-		document.querySelector('.navigation-bascet__value').innerHTML = mainBascet.listPurchase.length;
+		document.querySelector('.navigation-bascet__value').innerText = mainBascet.listPurchase.length;/*!!!!!!!!!!!!!!!!!!*/
 	}
 	createManePage();
+
 }
 document.addEventListener("DOMContentLoaded", createAppPageStructure);/*запускаем постройку приложения после HTML*/

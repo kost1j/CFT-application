@@ -15,11 +15,17 @@ function createHtmlElement(tagName, tagClassName, tagContentText, tagUrl, tagCon
 	var child = document.createElement(tagName);
 	if(tagClassName!=="") child.className = tagClassName;
 	if(tagContentText!=="") {
-		child.innerHTML = tagContentText;
+		child.innerText = tagContentText;
 	}else if(tagContentTag!==""){
 	 child.appendChild (tagContentTag);
 	}
-	if(tagName==="a") child.setAttribute('href', tagUrl);
+
+	if(tagName==="a"){
+		child.setAttribute('href', tagUrl);
+	} else if(tagName ==="script"){
+		child.setAttribute('src', tagUrl);
+		child.setAttribute('type', "text/javascript");
+	}
 	
 	if(atribute!==""){ 
 		for(var i=0; i <atribute.length; i++){

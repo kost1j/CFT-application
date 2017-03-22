@@ -73,7 +73,7 @@ function createMainBlockCatalogPage(index){
 	/*-------------------------------------------Очистка блока <section class="main">*/
 	var parent = document.querySelector('.main');
 			if (parent) {
-				parent.innerHTML = "";
+				parent.innerText = "";
 			}else{
 				insertHtmlElement("div", "middle",
 		 			createHtmlElement("section", "main main_background_white"));

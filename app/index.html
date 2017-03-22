@@ -11,6 +11,7 @@
 		<script type="text/javascript" src="js/mane-page.js"></script>
 		<script type="text/javascript" src="js/sidebar_link.js"></script>
 		<script type="text/javascript" src="js/app_catalog_page.js"></script>
+		<!--<script type="text/javascript" class="payment_script" src="js/payment_page.js"></script>-->
 	</head>
 	<body>
 		<div class="body__wrapper"></div>
@@ -36,13 +37,11 @@
 		<template class="cart-header-template">
 				<header class="cart-header">
 					<ul class="cart-navigation cart-header__cart-navigation">
-						<li class="cart-navigation__block">
-							<a href="#">
-								<div class="cart-navigation__circle cart-navigation_style_link">1</div>
-								<div class="cart-navigation__wrapper-text">
-									<p class="cart-navigation__text cart-navigation__text_style_link">Корзина</p>
-								</div>
-							</a>
+						<li class="cart-navigation__block" onclick = "createBascetPageStructure()">
+							<div class="cart-navigation__circle cart-navigation_style_link">1</div>
+							<div class="cart-navigation__wrapper-text">
+								<p class="cart-navigation__text cart-navigation__text_style_link">Корзина</p>
+							</div>
 						</li>
 						<li class="cart-navigation__line"></li>
 						<li class="cart-navigation__block">
@@ -85,14 +84,75 @@
 					<div class="cart1-return-bottons__wrapper">
 						
 					</div>
-					<a href="Cart2.html" class="cart1-next-button cart1-next-button_style_red">Далее</a>
+					<a href="#" class="cart1-next-button cart1-next-button_style_red" onclick="createPaymentScript()">Далее</a>
 					<div class="total-cost">
 						<p class="total-cost__text">Итого</p>
 						<p class="total-cost__integer"></p>
 					</div>
 			</template>
+
 			<template class="cart1-return-bottons-template">
 				<a href="#" class="cart1-return-bottons cart1-return-bottons_style_gray-border" onclick="createAppPageStructure()">Вернуться назад</a>
 			</template>
+
+			<template class="cart-payment-template">
+				<div class="cart-selection">
+					<a href="#" class="cart-selection__button cart-selection__button_style_yellow-border">Карта</a>
+					<p class="cart-selection__text">PayPal</p>
+				</div>
+				<div class="cart-information">
+					<div class="cart-information__up-block">
+						<div class="cart-information__brand-pictures">
+							<div class="master-card"></div>
+							<div class="visa"></div>
+						</div>
+						<form class="cart-information__up-form">
+							<input type="text" class="cart-information__cart-number" name="ard-name" placeholder="Номер карты"><br>
+							<input type="text" class="cart-information__month" name="month" placeholder="Месяц">
+							<input type="text" class="cart-information__year" name="year" placeholder="Год"><br>
+							<input type="text" class="cart-information__owner-name" name="owner-name" placeholder="Имя Владельца">
+						</form>
+					</div>
+					<div class="cart-information__down-block">
+						<div class="cart-information__band"></div>
+						<form class="cart-information__down-form">
+							<input type="text" class="cart-information__cvv" name="cvv" id="cvv" placeholder="CVV"><br>
+							<label class="cart-information__cvv-text" for="cvv">Код на обратной стороне</label>
+						</form>
+					</div>
+				</div>
+				<div class="cart2-down-bottons">
+					<a href="#" class="cart2-down-bottons__return cart2-down-bottons__return_style_gray-border"  onclick="createBascetPageStructure()">Вернуться назад</a>
+					<a href="#" class="cart2-down-bottons__pay cart2-down-bottons__pay_style_red" onclick = "checkPayForm()">Оплатить</a>
+				</div>
+			</template>
+			<template class="cart-delivery-template">
+				<div class="contact-information">
+					<h4 class="contact-information__banner">Контактная информация</h4>
+					<form class="contact-information__form">
+						<input type="text" class="contact-information__surname" name="surname" placeholder="Фамилия">
+						<input type="text" class="contact-information__name" name="name" placeholder="Имя"><br>
+						<input type="tel" class="contact-information__phone" name="phone" placeholder="Телефон">
+						<input type="email" class="contact-information__email" name="email" placeholder="E-mail">
+					</form>
+				</div>
+				<a href="#" class="cart3-complete-button cart3-complete-button_style_red" onclick="checkSendForm()">Завершить</a>				
+			</template>
+			<template class="cart-final-template">
+				<div class="complit-block">
+					<div class="complit-block__confirm"></div>
+					<h1 class="complit-block__congratulations">
+						Поздравляем!<br>
+						Ваш заказ был принят!
+					</h1>
+					<p class="complit-block__order-comment">
+						В ближайшее время с Вами свяжется наш менеджер<br>
+						для уточнения данных по заказу<br> 
+						и расскажет что же ожидает вас в будущем.
+					</p>
+					<a href="#" class="cart4-end-button cart4-end-button_style_yellow-border" onclick="createAppPageStructure()">Закрыть</a>
+				</div>
+			</template>
+			
 	</body>
 </html>
