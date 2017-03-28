@@ -146,7 +146,7 @@ function formAppsPackegesData(packegesData){
 	}
 	return (resultPackegesData);
 };
-function createManePageSlider(){
+function createMainPageSlider(){
 	httpGet("api/apps_slider_list.json").then(
 	    function(response){
 	        appsPackages = formAppsPackegesData(response);

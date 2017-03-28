@@ -7,11 +7,11 @@
     src: url(../fonts/SF-UI-Display-Regular.ttf); /* Путь к файлу со шрифтом */
 }
 /*-------------------------------------------------------------_____PAGE-STYLE--{_____----------------------------*/
-/*------------------------------------------***Mane_page***------------------------------------*/
+/*------------------------------------------***Main_page***------------------------------------*/
 .apps-page-body{
 	background-color:#f1f1f1;
 }
-/*-----------------------------------h3--Mane-page*/
+/*-----------------------------------h3--Main-page*/
 .apps-threaded__banner,
 .apps-packages__banner{
 	font-family: Arial;
@@ -39,7 +39,7 @@
 	display: inline-block;
 	width: 9.0625rem;
 	height: 3.75rem;
-	background: url("../img/mane-page/logo.svg") 100% 100% no-repeat;
+	background: url("../img/main-page/logo.svg") 100% 100% no-repeat;
 	-webkit-background-size: contain;
 	   -moz-background-size: contain;
 	    -ms-background-size: contain;
@@ -82,7 +82,7 @@
 	display: block;
  	width: 2.5rem;
  	height: 2.5rem;
- 	background: url("../img/mane-page/shopping-cart.svg") 50% 50% no-repeat;	
+ 	background: url("../img/main-page/shopping-cart.svg") 50% 50% no-repeat;	
 	-webkit-background-size: contain;
 	   -moz-background-size: contain;
 	    -ms-background-size: contain;
@@ -130,7 +130,7 @@
 	border: solid 1px #d9d9d9;
 	width: 14rem;
 	height: 2rem;
-	background-image: url("../img/mane-page/loupe.svg");
+	background-image: url("../img/main-page/loupe.svg");
 	background-repeat: no-repeat;
 	background-position: 95% 50%;
 	-webkit-background-size: 1rem 1rem;
@@ -172,7 +172,7 @@
 	top: 120px;
 	width: 20px;
 	height: 20px;
-	background: url("../img/mane-page/expand.svg") 50% 50% no-repeat;	
+	background: url("../img/main-page/expand.svg") 50% 50% no-repeat;	
 	-webkit-background-size: contain;
 	   -moz-background-size: contain;
 	    -ms-background-size: contain;
@@ -228,15 +228,15 @@
 	height: 12.25rem;
 }
 .apps-block__picture-first{
-	background-image:url(../img/mane-page/shot-1@3x.png);
+	background-image:url(../img/main-page/shot-1@3x.png);
 	background-size: cover;
 }
 .apps-block__picture-second{
-	background-image:url(../img/mane-page/shot-2@3x.png);
+	background-image:url(../img/main-page/shot-2@3x.png);
 	background-size: cover;
 }
 .apps-block__picture-third{
-	background-image:url(../img/mane-page/shot-3@3x.png);
+	background-image:url(../img/main-page/shot-3@3x.png);
 	background-size: cover;
 }
 .apps-block__banner{
@@ -274,7 +274,7 @@
 .apps-threaded__pointer{
 	width: 0.5rem;
 	height: 0.8125rem;
-	background: url("../img/mane-page/expand.svg") 50% 50% no-repeat;	
+	background: url("../img/main-page/expand.svg") 50% 50% no-repeat;	
 	-webkit-background-size: contain;
 	   -moz-background-size: contain;
 	    -ms-background-size: contain;
@@ -309,7 +309,7 @@
 .work-icon{
 	width: 1.3125rem;
 	height: 0.9375rem;
-	background: url("../img/mane-page/work-icon.svg") 50% 50% no-repeat;	
+	background: url("../img/main-page/work-icon.svg") 50% 50% no-repeat;	
 	-webkit-background-size: contain;
 	   -moz-background-size: contain;
 	    -ms-background-size: contain;
@@ -319,7 +319,7 @@
 .education-icon{
 	width: 1.3125rem;
 	height: 0.9375rem;	
-	background: url("../img/mane-page/education-icon.svg") 50% 50% no-repeat;	
+	background: url("../img/main-page/education-icon.svg") 50% 50% no-repeat;	
 	-webkit-background-size: contain;
 	   -moz-background-size: contain;
 	    -ms-background-size: contain;

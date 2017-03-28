@@ -62,8 +62,7 @@ function fillTableBascetData(appCatalogData){
 	
 	
 	var buttonElem = document.querySelector('.cart1-next-button');/*кнопка далее или вернуться*/
-	document.querySelector('.table-shopping__body').innerText = "";/*очищаем таблицу*/
-
+	textInnerHTML(document.querySelector('.table-shopping__body'),"");/*очищаем таблицу*/
 	if(mainBascet.listPurchase.length !== 0){
 		var bascetListIndex = 0;/*индекс для добавление данных о пакупках в объект по порядку mainBascet*/
 		mainBascet.totalCost = 0;/*обнуляем общую сумму в объекте mainBascet*/

@@ -1,4 +1,4 @@
-function createManePage(){
+function createMainPage(){
 	var parent = document.querySelector('.middle');
 			if (parent) parent.innerText = ""; /*Очистка блока*/
 
@@ -122,7 +122,7 @@ function createManePage(){
 	    }
 	);
 
-	createManePageSlider();/*Создаем слайдер*/
+	createMainPageSlider();/*Создаем слайдер*/
 };
 /*------------------------------------------Функция создания базовых блоков приложения-------------------------*/
 function createAppPageStructure(){
@@ -138,7 +138,7 @@ function createAppPageStructure(){
 		/*вышли из корзины не закончив операцию*/
 		document.querySelector('.navigation-bascet__value').innerText = mainBascet.listPurchase.length;/*!!!!!!!!!!!!!!!!!!*/
 	}
-	createManePage();
+	createMainPage();
 
 }
 document.addEventListener("DOMContentLoaded", createAppPageStructure);/*запускаем постройку приложения после HTML*/
